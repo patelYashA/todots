@@ -5,7 +5,8 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 import middleware from "./middleware";
 import { connect as database } from "./utils/database";
-import apiRouter from "./routes/index"
+import apiRouter from "./routes/index";
+import { start as agendaStart } from "./helpers/agenda";
 
 var app = express();
 
@@ -24,6 +25,9 @@ app.use(express.static(path.join(__dirname, "public")));
 database();
 
 app.use('/api', apiRouter);
+
+// agenda start
+agendaStart();
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {

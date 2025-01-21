@@ -13,4 +13,8 @@ export const environment: any = {
     secret: process.env.JWT_SECRET,
     expiredIn: process.env.JWT_EXPIRED_IN,
   },
+  myemail: {
+    email: process.env.EMAIL,
+    password: process.env.PASSWORD,
+  }
 };
